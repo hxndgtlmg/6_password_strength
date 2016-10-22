@@ -1,4 +1,6 @@
-import math, string
+import math
+import string
+
 
 def entropy(data):
     entropy = 0
@@ -10,9 +12,11 @@ def entropy(data):
             entropy += - p_x*math.log(p_x, 2)
     return int(entropy)
 
+
 def get_password_strength(password):
     special_characters = list(' !"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~')
-    worst_pattern = ['1234', 'password', 'qwer', 'abc', '1111', '1qaz', 'login']
+    worst_pattern = ['1234', 'password', 'qwer', 'abc',
+                     '1111', '1qaz', 'login']
     password_strength = 1
 
     if any(pattern in password for pattern in worst_pattern):
@@ -42,4 +46,5 @@ def get_password_strength(password):
     return password_strength
 
 if __name__ == '__main__':
-    print('Сложность пароля: {0}/10'.format(get_password_strength(input('Введите свой пароль: '))))
+    print('Сложность пароля: {0}/10'.format(get_password_strength(
+        input('Введите свой пароль: '))))
