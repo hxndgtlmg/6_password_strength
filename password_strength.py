@@ -2,12 +2,12 @@ import math
 import string
 
 
-def entropy(data):
+def entropy(line):
     entropy = 0
-    if not data:
+    if not line:
         return entropy
     for x in (ord(c) for c in string.printable):
-        p_x = float(data.count(chr(x)))/len(data)
+        p_x = float(line.count(chr(x)))/len(line)
         if p_x > 0:
             entropy += - p_x*math.log(p_x, 2)
     return int(entropy)
